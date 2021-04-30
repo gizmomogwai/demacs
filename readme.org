@@ -1,0 +1,51 @@
+* demacs "standalone version"
+Stripped down version to demonstrate emacs with serve-d as dlang
+language server.
+
+** Installation
+- Install a dlang compiler with the [[https://dlang.org/install.html][install script on dlang.org]].
+- Run serve-d once manually to get around all interactive questions
+  and the compile time delay by running =dub run serve-d=.
+
+The emacs specific installation is tested with emacs 27.2.
+
+Clone the repository to =~/.demacs=. One or all of the following:
+- make an alias that calls =emacs -q --load ~/.demacs/init.el=.
+- put .demacs in your path and call =demacs=.
+- link =~/.demacs/demacs= to demacs in a directory in your path.
+
+This should give you an emacs configuration including d-mode and eglot
+as language server.
+
+** Usage
+Start emacs now with the path to the dlang activation script that you want to
+use, e.g. =demacs ~/dlang/dmd-2.096.1/activate my-d-project/source/app.d=.
+
+This is to 99.99999% the default emacs configuration. So the almost all
+emacs users will be fine. For all the other users the most importation
+shortcut would be =C-x-c= which means hold Ctrl-Key and press first x
+and then c.
+
+*** Features
+Nicest features are:
+- annotations while editing for lexer problems, e.g. missing semicolons, ...
+- more semantic problems are found on safe.
+- =eglot-format= for dfmt.
+- =project-find-file= to find a file in the project.
+- eldoc with ddocs.
+
+** Uninstallation
+If you don't like it, simple delete =~/.demacs= and you are done.
+
+** Implementation / Tuning
+- [[https://github.com/raxod502/straight.el][straight]] is used to make sure magit with all dependencies is
+  available.
+- I added my favorite [[https://github.com/bbatsov/zenburn-emacs][color-theme]] to the mix.
+- All customizations are done directly in init.el to keep the startup
+  time as small as possible. Feel free to adjust the settings to your
+  liking.
+
+** Why
+I tried to reproduce a problem I had with my eglot setup which in the
+end boils down to something similar to [[https://github.com/raxod502/straight.el#the-wrong-version-of-my-package-was-loaded][what is mentioned in the
+straight FAQ.]]
