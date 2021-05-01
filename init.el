@@ -29,6 +29,9 @@
            '(d-mode . ("dub" "run" "--vquiet" "serve-d")))))
 
 (use-package zenburn-theme :straight t :config (load-theme 'zenburn t))
+(use-package company
+  :straight t
+  :config (global-company-mode 1))
 
 (menu-bar-mode -1)
 (load-theme 'zenburn t)

@@ -14,8 +14,8 @@ Clone the repository to =~/.demacs=. One or all of the following:
 - put .demacs in your path and call =demacs=.
 - link =~/.demacs/demacs= to demacs in a directory in your path.
 
-This should give you an emacs configuration including d-mode and eglot
-as language server.
+This should give you an emacs configuration including [[https://github.com/Emacs-D-Mode-Maintainers/Emacs-D-Mode][d-mode]] and [[https://github.com/joaotavora/eglot][eglot
+as language server]] with [[https://company-mode.github.io/][company mode for completion]].
 
 ** Usage
 Start emacs now with the path to the dlang activation script that you want to
@@ -33,6 +33,7 @@ Nicest features are:
 - =eglot-format= for dfmt.
 - =project-find-file= to find a file in the project.
 - eldoc with ddocs.
+- company mode for completion.
 
 ** Uninstallation
 If you don't like it, simple delete =~/.demacs= and you are done.
