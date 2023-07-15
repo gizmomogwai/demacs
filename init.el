@@ -18,23 +18,22 @@
   (load bootstrap-file nil 'nomessage))
 
 (straight-use-package 'use-package)
+
 (use-package d-mode
   :straight t)
-(use-package eglot
-  :straight t
-  :config (progn
-          (add-hook 'd-mode-hook 'eglot-ensure)
-          (add-to-list
-           'eglot-server-programs
-           '(d-mode . ("dub" "run" "--vquiet" "serve-d")))))
 
-(use-package zenburn-theme :straight t :config (load-theme 'zenburn t))
+(use-package eglot
+  :straight t)
+
+;; dont know how to put this in the previous :config block
+(with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs '((d-mode) "/serve-d/serve-d" "--logLevel=all")))
+
 (use-package company
   :straight t
   :config (global-company-mode 1))
 
 (menu-bar-mode -1)
-(load-theme 'zenburn t)
 (kill-buffer "*scratch*")
 (defalias 'yes-or-no-p 'y-or-n-p)
 (setq inhibit-startup-screen t)
